@@ -1,0 +1,54 @@
+In my extension, I created four new INSTRUCTIONs for the turtle program,
+including HOME, MOVE, DIREC and COLOR. I will briefly explain each and present
+their grammar structures as follows.
+The first instruction I created is called HOME. What it does is just reset the
+turtle to its original position. Its structure should be like:
+<HOME> ::= "HOME"
+The second instruction I created is called MOVE. What it does is move the
+turtle to any position the user likes. The position is defined by two
+numbers, each representing the x value or y value of the specific point on
+the screen. Its structure should be like:
+<MOVE> ::= "MOVE" number number
+The third instruction I created is called DIREC. What it does is set
+the moving direction of the turtle by changing the previous angle stored in
+the structure. It contains four elements: 'UP', 'DOWN', 'LEFT' and 'RIGHT'.
+It can be put in any where in the turtle program to change the direction.
+<DIREC> ::= "UP" | "DOWN" | "LEFT" | "RIGHT"
+The fourth instruction I created is called COLOR. With this instruction, the
+user can pick from 5 basic colors for the drawing, including red, yellow, blue,
+green, white, just by putting the name of colors after "COLOR".
+<COLOR> ::= "RED" | "YELLOW" | "BLUE" | "GREEN" | "WHITE"
+The fifth instruction I created is called ELEPH. Each time this instruction
+is called, it automatically draws an elephant on the screen. Its grammar
+structure contains a number which represents the size of the elephant drawn.
+<ELEPH> ::= "ELEPH" number
+
+The Formal Grammar after new instructions added should be like:
+<MAIN> ::= "{" <INSTRCTLST>
+<INSTRCTLST> ::= <INSTRUCTION><INSTRCTLST> |
+"}"
+<INSTRUCTION> ::= <FD> |
+<LT> |
+<RT> |
+<DO> |
+<SET>|
+<HOME>|
+<MOVE>|
+<DIREC>|
+<COLOR>|
+<ELEPH>
+<FD> ::= "FD" <VARNUM>
+<LT> ::= "LT" <VARNUM>
+<RT> ::= "RT" <VARNUM>
+<DO> ::= "DO" <VAR> "FROM" <VARNUM> "TO"
+<VARNUM> "{" <INSTRCTLST>
+<VAR> ::= [A−Z]
+<VARNUM> ::= number | <VAR>
+<SET> ::= "SET" <VAR> ":=" <POLISH>
+<POLISH> ::= <OP> <POLISH> | <VARNUM> <POLISH> | ";"
+<OP> ::= "+" | "−" | "*" | "/"
+<HOME> ::= "HOME"
+<MOVE> ::= "MOVE" number number
+<DIREC> ::= "UP" | "DOWN" | "LEFT" | "RIGHT"
+<COLOR> ::= "RED" | "YELLOW" | "BLUE" | "GREEN" | "WHITE"
+<ELEPH> ::= "ELEPH" number

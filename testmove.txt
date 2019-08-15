@@ -1,0 +1,11 @@
+{
+DO A FROM 1 TO 8 {
+FD 30
+LT 45
+}
+MOVE 100 100
+DO A FROM 1 TO 8 {
+FD 30
+RT 45
+}
+}

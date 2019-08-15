@@ -1,0 +1,25 @@
+testing strategy
+
+white box testing
+
+I include a test function called testall() in both my parser and interpreter,
+which tests each function of the program. In the testing function,
+I initialise the structure needed such as *prog and
+*turtle and fill the structure with informations by using either strcpy
+or ‘=’ depending on which data type it is.
+Some of the assertions assert cases that return errors,
+which will be printed in the terminal with specific test case
+and type of error stated, when the parser or interpreter is run.
+
+black box testing
+
+I have created 15 turtle-programs txt files.
+Some of them are valid programs(such as "triplenestedloops.txt")
+which can be parsed and interpreted successfully,
+but some of them contain different kinds of grammar errors(sample1-10).
+For those invalid turtle programs,
+I put them into the same file(“testingsamplesum.txt”) which include the original turtle program codes,
+the outputs my parser or interpreter return and a few words of explanation.
+For those valid turtle programs I created,
+I included them into the makefile,
+and the result will be shown together with the 4 turtle programs written in the handout.

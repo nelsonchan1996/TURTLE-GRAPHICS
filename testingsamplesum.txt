@@ -1,0 +1,113 @@
+testsample1:
+
+"FD 30
+ LT 45
+ }"
+
+output:
+
+TURTLE$ ./interpreter testsample1.txt
+Error in testmain: expect '{'
+
+explaination:if the first word scanned is not a '{', the parser
+reports error and exit.
+
+test sample2:
+
+"{
+ {
+ DF 30
+ LT 45
+ }"
+
+output:
+TURTLE$ ./interpreter testsample2.txt
+Error: Lack 1 }.
+
+explaination:if the numbers of brackets does not match,
+the parser reports the number of brackets lacked or extraneous
+and exit.
+
+test sample3:
+
+"{
+ FD 30
+ LT 45
+ }
+ }
+ }"
+
+output:
+
+TURTLE$ ./interpreter testsample3.txt
+Error: 2 Extraneous }.
+
+explaination:if the numbers of brackets does not match,
+the parser reports the number of brackets lacked or extraneous
+and exit.
+
+
+test sample4:
+
+"{
+ DO A FOR 1 TO 8 {
+ FD 30
+ LT 45
+ }
+ }"
+
+output:TURTLE$ ./interpreter testsample4.txt
+Error in DO: expecting'FROM'
+
+explaination:if the words scanned do not fulfil the structure
+of DO, the parser reports error and exit.
+
+
+test sample5:
+
+"{
+ DO A FROM 1 TILL 8 {
+ FD 30
+ LT 45
+ }
+ }"
+
+output:TURTLE$ ./interpreter testsample4.txt
+Error in DO: expecting'TO'
+
+explaination:if the words scanned do not fulfil the structure
+of DO, the parser reports error and exit.
+
+
+test sample6:
+
+"{
+ DO A FROM 1 TO 100 {
+ SET C = A 1.5 * ;
+ FD C
+ RT 62
+ }
+ }"
+
+output:TURTLE$ ./interpreter testsample6.txt
+Error in SET: expect':='.
+
+explaination:if the words scanned do not fulfil the structure
+of SET, the parser reports error and exit.
+
+
+test sample7:
+
+"{
+ DO A FROM 1 TO 100 {
+ SET C := A 1.5 *
+ FD C
+ RT 62
+ }
+ }"
+
+output:TURTLE$ ./interpreter testsample7.txt
+Error in POLISH: expecting ';'
+
+explaination:if the words scanned do not fulfil the structure
+of SET, the parser reports error and exit.
